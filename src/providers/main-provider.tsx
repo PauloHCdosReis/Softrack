@@ -1,10 +1,10 @@
-import React from 'react'
-import { ThemeProvider } from './theme-provider'
+import React from "react";
+import { ThemeProvider } from "./theme-provider";
 
 export default function MainProvider({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <ThemeProvider
@@ -12,8 +12,9 @@ export default function MainProvider({
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
+      themes={["softracklight", "softrackdark", "dark", "light"]}
     >
       {children}
     </ThemeProvider>
-  )
+  );
 }

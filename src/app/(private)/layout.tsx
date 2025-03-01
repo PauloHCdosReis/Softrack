@@ -11,6 +11,6 @@ export default function PrivateLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>{children}</main>
+    <main className="h-full max-h-full w-full max-w-full">{children}</main>
   );
 }
