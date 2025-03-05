@@ -1,8 +1,8 @@
 "use client";
 
-import { useTheme } from "@providers/theme-provider";
+import { useTheme } from "@hooks/useTheme";
 
-export default function ThemeSwitcher() {
+export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -13,4 +13,4 @@ export default function ThemeSwitcher() {
       Mudar para {theme === "light" ? "dark" : "light"}
     </button>
   );
-}
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 type Theme = "light" | "dark";
@@ -10,21 +10,15 @@ type ThemeContextType = {
   setTheme: (theme: Theme) => void;
 };
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
-}
+export const ThemeContext = createContext<ThemeContextType>(
+  {} as ThemeContextType
+);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const parceiro = pathname.split("/")[1] || "softrack"; // Se não tiver parceiro na URL, usa "softrack"
   const [theme, setTheme] = useState<Theme>("dark"); // Padrão: dark
-
+  console.log("aquiu");
   useEffect(() => {
     const htmlElement = document.documentElement;
 
